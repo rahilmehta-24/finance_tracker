@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category-wise Expenses Distribution</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="graph_style.css" type="text/css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h5 class="m-0">Category-wise Expenses Distribution</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group custom-list-group">
+                        {% for category, value in category_totals.items() %}
+                            <li class="list-group-item custom-list-item d-flex justify-content-between align-items-center">
+                                <strong>{{ category }}</strong>
+                                <span class="badge badge-primary badge-pill">{{ value }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <canvas id="categoryExpensesChart" class="w-100 custom-pie-chart"></canvas>
+                </div>
+                <div>
+                    <a href="{{ url_for('index') }}" class="btn btn-info ml-2">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    var ctxPie = document.getElementById('categoryExpensesChart').getContext('2d');
+    var pieData = {
+        labels: {{ category_totals.index.tolist() | tojson }},
+        datasets: [{
+            data: {{ category_totals.values.tolist() | tojson }},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)'
+            ]
+        }]
+    };
+
+    new Chart(ctxPie, {
+        type: 'pie',
+        data: pieData
+    });
+</script>
+
+<!-- Optional Bootstrap JS and jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

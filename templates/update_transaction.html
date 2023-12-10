@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 class="mb-4">Update Transaction</h1>
+<form method="post" class="mb-3">
+    <!-- Include the CSRF token -->
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    
+    <div class="form-group">
+        <label for="category">Category:</label>
+        <select class="form-control" id="category" name="category">
+            <option value="" disabled>Select a category</option>
+            {% for cat in categories %}
+            <option value="{{ cat }}" {% if cat == transaction.category %} selected {% endif %}>{{ cat }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <!-- ... Rest of your form fields, pre-filled with transaction data ... -->
+    <input type="submit" class="btn btn-success" value="Update">
+</form>
+{% endblock %}

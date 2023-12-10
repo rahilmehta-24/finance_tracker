@@ -1,0 +1,112 @@
+/* Base styling */
+html, body {
+    height: 100%;
+    /* background-color: rgb(245, 245, 245); */
+    color: #333;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Main container styling */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Button styling */
+a.btn, button.btn, a.btn-info ml-2 {
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+/* Hover effects for buttons */
+a.btn.btn-primary:hover, a.btn.btn-info.ml-2:hover, button.btn.btn-primary:hover {
+    background-color: #444;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+}
+
+/* Table header styling */
+table thead {
+    background-color: #444;
+    color: #ffffff;
+}
+
+/* Cell padding */
+table th, table td {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+/* Rounded corners for table header cells */
+table thead th:first-child {
+    border-top-left-radius: 20px;
+}
+table thead th:last-child {
+    border-top-right-radius: 20px;
+}
+
+/* Hover effect for table rows */
+table tbody tr:hover {
+    background-color: #eaeaea;
+}
+
+/* Card styling */
+.card {
+    background-color: #f9f9f9;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;  /* Makes sure inner content respects the border-radius */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card header styling */
+.card-header {
+    background-color: #444;
+    color: #ffffff;
+    font-size: 1.1em;
+    border-bottom: none;
+}
+
+/* Pie chart container */
+.pie-chart-container {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Back to Home button styling */
+a.btn.btn-info.ml-2 {
+    margin-top: 30px;
+    display: inline-flex;
+    width: max-content;
+}
+
+/* UL styling */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-weight: 500;
+}

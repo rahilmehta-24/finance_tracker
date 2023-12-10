@@ -1,0 +1,9 @@
+.pie-chart-container {
+    width: 50%; /* Reduce the width by 50% */
+    margin: 0 auto; /* Center the div if necessary */
+}
+#categoryExpensesChart {
+    width: 100% !important; 
+    height: auto !important;
+    display: block;
+}
